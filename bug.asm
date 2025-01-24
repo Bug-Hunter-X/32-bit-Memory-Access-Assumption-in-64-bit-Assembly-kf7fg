@@ -1,0 +1,3 @@
+mov eax, [ebx + ecx*4 + 0x10]
+
+This line of assembly code attempts to access memory at an address calculated as ebx + ecx*4 + 0x10.  The issue is that it assumes a 32-bit system. If this code is run on a 64-bit system, the calculation may produce an incorrect address because ecx will only be extended to 32 bits when performing this calculation, leading to potential segmentation faults or memory corruption. 
